@@ -8,16 +8,48 @@ html {
   padding: 0;
 }
 a {
-  color: #000;
   text-decoration: none;
   font-family: "Arial Black", sans-serif;
-  transition: 0.3s;
-  letter-spacing: 0.03em;
+  transition: 0.2s;
+  letter-spacing: 0.1em;
+  color: #000;
 }
 a:hover {
-  color: #fff;
-  letter-spacing: 0.06em;
   text-shadow: black;
+}
+.header-main {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 50px;
+  background-color: #eaeaea;
+}
+.header-wrapper {
+  display: flex;
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+}
+.header-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 auto;
+  display: flex;
+}
+.header-menu li {
+  line-height: 50px;
+  transition: 0.2s;
+}
+.header-menu li a {
+  display: block;
+  padding: 0 15px;
+}
+.header-menu li:hover {
+  background-color: #fff;
+}
+body {
+  margin-top: 50px;
 }
 .post {
   display: flex;

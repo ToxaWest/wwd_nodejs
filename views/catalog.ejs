@@ -1,9 +1,9 @@
-<%- include('blocks/header') -%>
+<%- header %>
 
 <div class="post">
     <% for(var i = 0; i < post.length; i++){ %>
         <div class="post-single">
-            <h2><a href="/portfolio/<%- post[i].id %>_<%- post[i].title.toLowerCase().replace(' ','-') %>" title="<%- post[i].title %>"><%- post[i].title %></a></h2>
+            <h2><a href="/portfolio/<%- post[i].id %>-<%- post[i].title.toLowerCase().replace(' ','-') %>" title="<%- post[i].title %>"><%- post[i].title %></a></h2>
             <div class="post-single__image">
                 <img src="/public/content/<%- post[i].images %>" alt="<%- post[i].title %>"/>
             </div>
