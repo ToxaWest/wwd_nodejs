@@ -1,0 +1,15 @@
+<%- include('blocks/header') -%>
+
+<div class="post-page" style="background-image:url('/public/content/<%- post.images %>')">
+        <div class="post-single">
+            <h2><%- post.title %></h2>
+            <div class="post-single__description">
+                <span><%- post.fulldescription %></span>
+            </div>
+            <div class="post-single__type">
+                <span><%- post.type %></span>
+            </div>
+        </div>
+</div>
+
+<%- include('blocks/footer') -%>
