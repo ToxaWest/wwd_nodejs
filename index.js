@@ -1,5 +1,4 @@
-var fs = require('fs'),
-    mysql = require('mysql'),
+var mysql = require('mysql'),
     express = require('express'),
     ejs = require('ejs'),
     app = express();
@@ -29,7 +28,6 @@ app.get('/portfolio/:ids',function (req, res) {
     var targetId = req.params.ids;
     connection.query('SELECT * FROM progect WHERE id= ?; SELECT * FROM menu', [targetId, 1,2], function (err, row) {
         if (err) throw err;
-        console.log(row[0]);
         res.render('product-page', {
             post: row[0][0],
             menu: row[1]
@@ -37,7 +35,7 @@ app.get('/portfolio/:ids',function (req, res) {
     });
 });
 
-app.listen(80);
+app.listen(8000);
 
 
 

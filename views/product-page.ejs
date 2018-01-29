@@ -9,6 +9,18 @@
             <div class="post-single__type">
                 <span><%- post.type %></span>
             </div>
+            <div class="post-single__images">
+                <div class="post-single__image">
+                    <h3>Desktop</h3>
+                    <img src="/public/content/<%- post.images %>" />
+                </div>
+                <% if(post.img2) {%>
+                    <div class="post-single__image">
+                        <h3>Mobile</h3>
+                        <img src="/public/content/<%- post.img2 %>" />
+                    </div>
+                <% } %>
+            </div>
         </div>
 </div>
 
