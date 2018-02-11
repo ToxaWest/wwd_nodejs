@@ -1,12 +1,12 @@
 {
-  "name": "nodejs-learn",
+  "name": "wwd_nodejs",
   "version": "1.0.0",
   "description": "learn",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "express-public-ip": "^1.0.1",
     "mysql": "^2.15.0"
   },
   "devDependencies": {},
