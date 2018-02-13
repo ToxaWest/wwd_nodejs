@@ -12,13 +12,16 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="menu">
-                <span>Header menu</span>
-                {this.state.menu.map(menu =>
-                    <div key={menu.id} className="post-single">
-                        <h3><a href={menu.href} title={menu.title}>{menu.href_name}</a></h3>
-                    </div>
-                )}
+            <div className="header-main">
+                <div className="header-wrapper">
+                    <ul className="header-menu">
+                    {this.state.menu.map(menu =>
+                        <li key={menu.id}>
+                            <a href={menu.href} title={menu.title}>{menu.href_name}</a>
+                        </li>
+                    )}
+                    </ul>
+                </div>
             </div>
         );
     }
