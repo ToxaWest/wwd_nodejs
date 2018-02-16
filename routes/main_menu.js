@@ -3,9 +3,9 @@ const express = require('express'),
     connection = require('../etc/env');
 
 router.get('/', function(req, res) {
-    connection.query('SELECT * FROM menu', function (err, post) {
+    connection.query('SELECT * FROM menu', function (err, menu) {
         if (err) throw err;
-        res.json(post);
+        res.json(menu);
     });
 });
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 class Posts extends Component {
-    state = {post: []}
-
+    state = {post: []};
 
     componentDidMount() {
         fetch('/posts')

@@ -5,7 +5,7 @@ const   express = require('express'),
         port = 3001;
 
 const posts  = require('./routes/posts');
-const menu  = require('./routes/header');
+const main_menu  = require('./routes/main_menu');
 
 
 app.set('view engine' , 'ejs');
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/public', express.static('public'));
 
 app.use('/posts', posts);
-app.use('/menu', menu);
+app.use('/main_menu', main_menu);
 
 app.use(function(req, res) {
     const err = new Error('Not Found');
