@@ -118,3 +118,34 @@ body{
         }
     }
 }
+.home-slider{
+    .slick-next , .slick-prev{
+        &:before{
+            color: black;
+            font-size: 50px;
+        }
+        z-index: 2;
+    }
+    .slick-next{
+        right: 20vw;
+    }
+    .slick-prev{
+        left:20vw;
+    }
+    .main-slider{
+        background-size: cover;
+        max-width: 100%;
+        &_content{
+            display: flex;
+            width: 100%;
+            min-height: calc(~"100vh - 50px");
+            align-items: flex-end;
+            justify-content: center;
+        }
+        h3{
+            font-size: 3vw;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    }
+}

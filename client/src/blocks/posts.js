@@ -20,7 +20,7 @@ class Posts extends Component {
             <div key={post.id} className="post-single">
                 <h2><a href={'/post/' + post.id} title={post.title}>{post.title}</a></h2>
                 <div className="post-single__image">
-                    <img src={'/public/content/' + post.images} alt={post.title}/>
+                    <img src={'/public/content/projects/' + post.images} alt={post.title}/>
                 </div>
                 <div className="post-single__description">
                     <span>{post.description}</span>

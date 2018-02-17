@@ -116,3 +116,34 @@ body {
   margin: 30vh auto 0;
   background-color: #eaeaea;
 }
+.home-slider .slick-next,
+.home-slider .slick-prev {
+  z-index: 2;
+}
+.home-slider .slick-next:before,
+.home-slider .slick-prev:before {
+  color: black;
+  font-size: 50px;
+}
+.home-slider .slick-next {
+  right: 20vw;
+}
+.home-slider .slick-prev {
+  left: 20vw;
+}
+.home-slider .main-slider {
+  background-size: cover;
+  max-width: 100%;
+}
+.home-slider .main-slider_content {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  align-items: flex-end;
+  justify-content: center;
+}
+.home-slider .main-slider h3 {
+  font-size: 3vw;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
