@@ -22,6 +22,7 @@ a:hover {
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 20;
   height: 50px;
   background-color: #eaeaea;
 }
@@ -52,22 +53,17 @@ body {
   margin-top: 50px;
 }
 .post {
-  display: flex;
-  flex-wrap: wrap;
   max-width: 1024px;
   padding: 15px;
   margin: auto;
-  justify-content: center;
 }
 .post-single {
-  margin: 15px;
   padding: 10px;
   border-radius: 3px;
+  margin: 15px;
+  width: 300px;
   background-color: #c6c6c6;
   border: 1px solid #999;
-  max-width: 300px;
-  display: flex;
-  flex-wrap: wrap;
 }
 .post-single h2 {
   margin: 0;
@@ -82,11 +78,10 @@ body {
   letter-spacing: 0.03em;
 }
 .post-single__description {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
 .post-single__image {
   width: 100%;
-  height: 300px;
   overflow: hidden;
   margin: 10px 0;
   border-radius: 3px;
