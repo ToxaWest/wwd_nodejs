@@ -53,10 +53,15 @@ a{
 body{
     margin-top: 50px;
 }
-.post{
+.container{
     max-width: 1024px;
-    padding: 15px;
-    margin: auto;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.post{
+    &-wrapper{
+        margin: 0 auto;
+    }
     &-single{
         padding: 10px;
         border-radius: 3px;
@@ -81,7 +86,7 @@ body{
         }
         &__image{
             width: 100%;
-            //max-height: 300px;
+            max-height: 500px;
             overflow: hidden;
             margin: 10px 0;
             border-radius: 3px;
@@ -119,6 +124,9 @@ body{
     }
 }
 .home-slider{
+    .slick-dots{
+        bottom: 0;
+    }
     .slick-next , .slick-prev{
         &:before{
             color: black;
@@ -134,6 +142,7 @@ body{
     }
     .main-slider{
         background-size: cover;
+        background-position: center;
         max-width: 100%;
         &_content{
             display: flex;

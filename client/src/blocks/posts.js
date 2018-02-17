@@ -3,6 +3,7 @@ import Masonry from 'react-masonry-component';
 
 const masonryOptions = {
     transitionDuration: 0,
+    isFitWidth: true
 };
 
 class Posts extends Component {
@@ -18,7 +19,7 @@ class Posts extends Component {
         document.title = "Posts";
         const posts = this.state.post.map(post =>
             <div key={post.id} className="post-single">
-                <h2><a href={'/post/' + post.id} title={post.title}>{post.title}</a></h2>
+                <h2><a href={'/portfolio/' + post.id} title={post.title}>{post.title}</a></h2>
                 <div className="post-single__image">
                     <img src={'/public/content/projects/' + post.images} alt={post.title}/>
                 </div>
@@ -31,8 +32,9 @@ class Posts extends Component {
             </div>
         );
         return (
-            <Masonry
-                className={'post'}
+            <div className="post container">
+                <Masonry
+                className={'post-wrapper'}
                 elementType={'div'}
                 options={masonryOptions}
                 disableImagesLoaded={false}
@@ -40,6 +42,7 @@ class Posts extends Component {
             >
                 {posts}
             </Masonry>
+            </div>
         );
     }
 }

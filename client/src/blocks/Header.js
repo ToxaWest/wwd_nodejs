@@ -6,9 +6,9 @@ class Header extends Component {
     render() {
         return (
             <div className="header-main">
-                <div className="header-wrapper">
+                <nav className="header-wrapper">
                     <Menu/>
-                </div>
+                </nav>
             </div>
         );
     }

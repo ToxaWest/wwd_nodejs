@@ -7,6 +7,7 @@ const   express = require('express'),
 const posts  = require('./routes/posts');
 const main_menu  = require('./routes/main_menu');
 const slider  = require('./routes/slider');
+const services  = require('./routes/services');
 
 
 app.set('view engine' , 'ejs');
@@ -16,6 +17,7 @@ app.use('/public', express.static('public'));
 
 app.use('/posts', posts);
 app.use('/slider', slider);
+app.use('/services', services);
 app.use('/main_menu', main_menu);
 
 app.use(function(req, res) {
