@@ -121,6 +121,7 @@ body {
   width: 300px;
   background-color: #c6c6c6;
   border: 1px solid #999;
+  transition: all 0.2s;
 }
 .post-single__matrix .post-single {
   transform: matrix(1, -0.05, 0, 1, 0, 0);
@@ -130,6 +131,12 @@ body {
   width: auto;
   background-color: transparent;
   border: none;
+}
+.post-single__matrix:hover {
+  width: 310px;
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #eaeaea;
 }
 .post-single__type {
   padding: 15px 0 5px;
