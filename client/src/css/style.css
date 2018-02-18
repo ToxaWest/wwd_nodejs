@@ -96,6 +96,7 @@ body {
 }
 .post .description {
   padding: 10px;
+  display: block;
 }
 .post-wrapper {
   margin: 0 auto;

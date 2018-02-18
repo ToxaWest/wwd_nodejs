@@ -80,7 +80,7 @@ class Posts extends Component {
                                 .filter(services=>{
                                     return services.title === this.state.currentType
                                 })
-                                .map(services => services.fulldescription)}
+                                .map(services => services.description)}
                             </span>;
         return (
             <div className="post container">
