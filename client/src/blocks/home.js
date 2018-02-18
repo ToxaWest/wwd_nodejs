@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainSlider from "./slider";
 import Services from "./services";
+import LastPosts from "./last-posts";
 
 class Home extends Component {
 
@@ -12,6 +13,7 @@ class Home extends Component {
                     <MainSlider/>
                 </div>
                 <Services/>
+                <LastPosts/>
             </div>
         );
     }

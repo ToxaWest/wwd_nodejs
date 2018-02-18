@@ -20,11 +20,6 @@ app.use('/slider', slider);
 app.use('/services', services);
 app.use('/main_menu', main_menu);
 
-app.use(function(req, res) {
-    const err = new Error('Not Found');
-    err.status = 404;
-});
-
 module.exports = app;
 
 app.listen(port);

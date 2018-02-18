@@ -46,7 +46,8 @@ a:hover {
   display: block;
   padding: 0 15px;
 }
-.header-menu li:hover {
+.header-menu li:hover,
+.header-menu li.active {
   background-color: #fff;
 }
 body {
@@ -104,6 +105,17 @@ body {
   max-width: 100%;
   width: auto;
   margin: 0 auto;
+  padding: 0 15px;
+}
+.post-slider {
+  display: flex;
+  overflow: hidden;
+}
+.post-slider .post-single {
+  margin: 0;
+  width: auto;
+}
+.post-slider .post-single__wrapper {
   padding: 0 15px;
 }
 .post-page {
