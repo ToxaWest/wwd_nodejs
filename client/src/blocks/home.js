@@ -8,13 +8,13 @@ class Home extends Component {
     render() {
         document.title = "Home";
         return (
-            <div>
+            <main>
                 <div className="home-slider">
                     <MainSlider/>
                 </div>
                 <Services/>
                 <LastPosts/>
-            </div>
+            </main>
         );
     }
 }

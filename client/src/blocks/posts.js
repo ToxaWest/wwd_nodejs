@@ -7,8 +7,6 @@ const masonryOptions = {
     isFitWidth: true
 };
 
-
-
 class Posts extends Component {
     state = {post: [], count: 6, currentType: '*',services:[]};
 
@@ -26,6 +24,7 @@ class Posts extends Component {
         this.loadMore = this.loadMore.bind(this);
         this.ChangeType = this.ChangeType.bind(this);
     }
+
     loadMore() {
         this.setState({count:this.state.count+6})
     }
@@ -44,30 +43,49 @@ class Posts extends Component {
 
     render() {
         document.title = "Posts";
-        const posts = this.state.post.filter(posts=>this.CurrentType(posts)).slice( 0, this.state.count).map(post =>
-            <div key={post.id}  className="post-single__matrix">
-                <div className="post-single">
-                    <h2><Link to={'/portfolio/' + post.id} title={post.title}>{post.title}</Link></h2>
-                    <div className="post-single__image">
-                        <img src={'/public/content/projects/' + post.images} alt={post.title}/>
+        const posts =
+            this.state.post
+                .filter(posts=>this.CurrentType(posts))
+                .reverse()
+                .slice( 0, this.state.count)
+                .map(post =>
+                    <div key={post.id}  className="post-single__matrix">
+                        <div className="post-single">
+                            <h2><Link to={'/portfolio/' + post.id} title={post.title}>{post.title}</Link></h2>
+                            <div className="post-single__image">
+                                <img src={'/public/content/projects/' + post.images} alt={post.title}/>
+                            </div>
+                            <div className="post-single__description">
+                                <span>{post.description}</span>
+                            </div>
+                            <div className="post-single__type">
+                                <span>{post.type}</span>
+                            </div>
+                        </div>
                     </div>
-                    <div className="post-single__description">
-                        <span>{post.description}</span>
-                    </div>
-                    <div className="post-single__type">
-                        <span>{post.type}</span>
-                    </div>
-                </div>
-            </div>
-        );
+                );
+        const select =
+            <select className="select" onChange={this.ChangeType}>
+                <option value='*'>All</option>
+                {this.state.services.map(services =>
+                        <option key={services.id} value={services.title}>{services.title}</option>
+                )}
+                </select>;
+        const LoadMoreButton =
+            this.state.count < this.state.post.length
+            ? <button onClick={this.loadMore}>Load more</button>
+            : null ;
+
+        const description = <span className="description">{this.state.services
+                                .filter(services=>{
+                                    return services.title === this.state.currentType
+                                })
+                                .map(services => services.fulldescription)}
+                            </span>;
         return (
             <div className="post container">
-                <select className="select" onChange={this.ChangeType}>
-                    <option value='*'>All</option>
-                    {this.state.services.map(services =>
-                        <option key={services.id} value={services.title}>{services.title}</option>
-                    )}
-                </select>
+                {select}
+                {description}
                 <Masonry
                     className={'post-wrapper'}
                     elementType={'div'}
@@ -75,12 +93,9 @@ class Posts extends Component {
                     disableImagesLoaded={false}
                     updateOnEachImageLoad={true}
                 >
-                {posts}
-            </Masonry>
-                {this.state.count < this.state.post.length
-                    ? <button onClick={this.loadMore}>Load more</button>
-                    : null
-                }
+                    {posts}
+                </Masonry>
+                {LoadMoreButton}
             </div>
         );
     }

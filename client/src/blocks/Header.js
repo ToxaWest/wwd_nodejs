@@ -5,11 +5,11 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="header-main">
+            <header className="header-main">
                 <nav className="header-wrapper">
                     <Menu/>
                 </nav>
-            </div>
+            </header>
         );
     }
 }
