@@ -17,6 +17,10 @@ a {
 a:hover {
   text-shadow: black;
 }
+button {
+  margin: 25px auto;
+  display: block;
+}
 .header-main {
   position: fixed;
   width: 100%;

@@ -17,7 +17,6 @@ class Menu extends Component {
         const currentId = decodeURIComponent(window.location.pathname);
         return (
             <ul className="header-menu">
-                {console.log(currentId)}
                 {this.state.menu.map(menu =>
                     <li key={menu.id} className={menu.href === currentId ? 'active': null}>
                         <Link to={menu.href} title={menu.title} >{menu.href_name}</Link>
