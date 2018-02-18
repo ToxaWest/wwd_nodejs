@@ -18,18 +18,31 @@ class SinglePosts extends Component {
         return (
             <div>
                 {post.map(post =>
-                    <div key={post.id} className="post">
-                        <h2>{document.title = post.title}</h2>
-                        <div className="post-single__image">
-                            <img src={'/public/content/projects/' + post.images} alt={post.title}/>
+                    <div key={post.id} className="post-page" style={{ backgroundImage: `url(/public/content/projects/${post.images})` }}>
+                        <div className="post-single">
+                            <h2>{document.title = post.title}</h2>
+                            <div className="post-single__description">
+                                <span>{post.fulldescription}</span>
+                            </div>
+                            <div className="post-single__type">
+                                <span>{post.type}</span>
+                            </div>
+                            <div className="post-single__images">
+                                <div className="post-single__image">
+                                    <h3>Desktop</h3>
+                                    <img src={'/public/content/projects/' + post.images} alt={post.title}/>
+                                </div>
+                                {post.img2 ?
+                                    <div className="post-single__image">
+                                        <h3>Mobile</h3>
+                                        <img src={'/public/content/projects/' + post.img2} alt={post.title}/>
+                                    </div>
+                                    :
+                                    null
+                                }
+                            </div>
                         </div>
-                        <div className="post-single__description">
-                            <span>{post.description}</span>
                         </div>
-                        <div className="post-single__type">
-                            <span>{post.type}</span>
-                        </div>
-                    </div>
                 )}
             </div>
         );

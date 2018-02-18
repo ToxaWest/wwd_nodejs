@@ -82,6 +82,14 @@ body{
     margin: 0 auto;
 }
 .post{
+    .select{
+        background-color: black;
+        color: #fff;
+        line-height: 30px;
+        padding: 5px 10px;
+        margin: 20px auto;
+        display: block;
+    }
     &-wrapper{
         margin: 0 auto;
     }
@@ -94,6 +102,24 @@ body{
         border:1px solid #999;
         h2{
             margin: 0;
+        }
+        &__matrix{
+            transform: matrix(1, 0.05, 0, 1, 0, 0);
+            padding: 10px;
+            border-radius: 3px;
+            margin: 10px;
+            width:300px;
+            background-color: #c6c6c6;
+            border:1px solid #999;
+            .post-single{
+                transform: matrix(1, -0.05, 0, 1, 0, 0);
+                padding: 0;
+                border-radius: 0;
+                margin: 0;
+                width:auto;
+                background-color: transparent;
+                border:none;
+            }
         }
         &__type{
             padding: 15px 0 5px;

@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Menu extends Component {
-    state = {menu: [], posts:[]};
+    state = {menu: []};
 
     componentDidMount() {
         fetch('/main_menu')
             .then(res => res.json())
             .then(menu => this.setState({ menu }));
-        fetch('/posts')
-            .then(res => res.json())
-            .then(posts => this.setState({ posts }));
     }
 
     render() {
@@ -20,16 +17,6 @@ class Menu extends Component {
                 {this.state.menu.map(menu =>
                     <li key={menu.id} className={menu.href === currentId ? 'active': null}>
                         <Link to={menu.href} title={menu.title} >{menu.href_name}</Link>
-                            {menu.href === '/portfolio'
-                                ?
-                                <div className="sublink">
-                                    {this.state.posts.map(posts =>
-                                        <Link to={'/portfolio/' + posts.id} key={posts.id} title={posts.title} >{posts.title}</Link>
-                                    )}
-                                </div>
-                                :
-                                null
-                            }
                     </li>
                 )}
             </ul>

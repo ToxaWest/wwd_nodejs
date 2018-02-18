@@ -79,6 +79,14 @@ body {
   padding: 0 15px;
   margin: 0 auto;
 }
+.post .select {
+  background-color: black;
+  color: #fff;
+  line-height: 30px;
+  padding: 5px 10px;
+  margin: 20px auto;
+  display: block;
+}
 .post-wrapper {
   margin: 0 auto;
 }
@@ -92,6 +100,24 @@ body {
 }
 .post-single h2 {
   margin: 0;
+}
+.post-single__matrix {
+  transform: matrix(1, 0.05, 0, 1, 0, 0);
+  padding: 10px;
+  border-radius: 3px;
+  margin: 10px;
+  width: 300px;
+  background-color: #c6c6c6;
+  border: 1px solid #999;
+}
+.post-single__matrix .post-single {
+  transform: matrix(1, -0.05, 0, 1, 0, 0);
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+  width: auto;
+  background-color: transparent;
+  border: none;
 }
 .post-single__type {
   padding: 15px 0 5px;
