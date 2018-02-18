@@ -41,14 +41,31 @@ a:hover {
 .header-menu li {
   line-height: 50px;
   transition: 0.2s;
+  position: relative;
 }
 .header-menu li a {
   display: block;
   padding: 0 15px;
 }
+.header-menu li .sublink {
+  display: none;
+  position: absolute;
+  width: 200%;
+  background-color: #ccc;
+}
+.header-menu li .sublink a {
+  transition: 0.2s 0s;
+}
 .header-menu li:hover,
 .header-menu li.active {
   background-color: #fff;
+}
+.header-menu li:hover .sublink {
+  display: block;
+}
+.header-menu li:hover .sublink a:hover {
+  background-color: #000;
+  color: #fff;
 }
 body {
   margin-top: 50px;
@@ -86,7 +103,7 @@ body {
 }
 .post-single__image {
   width: 100%;
-  max-height: 500px;
+  max-height: 400px;
   overflow: hidden;
   margin: 10px 0;
   border-radius: 3px;
