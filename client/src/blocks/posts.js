@@ -7,12 +7,15 @@ const masonryOptions = {
 };
 
 class Posts extends Component {
-    state = {post: [], count: 6, currentType: ''};
+    state = {post: [], count: 6, currentType: '*',services:[]};
 
     componentDidMount() {
         fetch('/posts')
             .then(res => res.json())
             .then(post => this.setState({post}));
+        fetch('/services')
+            .then(res => res.json())
+            .then(services => this.setState({services}));
     }
 
     constructor(props) {
@@ -28,9 +31,18 @@ class Posts extends Component {
         this.setState({currentType:event.target.value});
     }
 
+    CurrentType(posts) {
+        if (this.state.currentType === '*') {
+            return posts.type === posts.type
+        }
+        else {
+            return posts.type === this.state.currentType
+        }
+    }
+
     render() {
         document.title = "Posts";
-        const posts = this.state.post.filter(posts=>{return (posts.type === this.state.currentType)}).slice( 0, this.state.count).map(post =>
+        const posts = this.state.post.filter(posts=>this.CurrentType(posts)).slice( 0, this.state.count).map(post =>
             <div key={post.id} className="post-single">
                 <h2><a href={'/portfolio/' + post.id} title={post.title}>{post.title}</a></h2>
                 <div className="post-single__image">
@@ -47,9 +59,9 @@ class Posts extends Component {
         return (
             <div className="post container">
                 <select onChange={this.ChangeType}>
-                    <option value='*'>None</option>
-                    {this.state.post.map(post =>
-                        <option key={post.id} value={post.type}>{post.type}</option>
+                    <option value='*'>All</option>
+                    {this.state.services.map(services =>
+                        <option key={services.id} value={services.title}>{services.title}</option>
                     )}
                 </select>
                 <Masonry
