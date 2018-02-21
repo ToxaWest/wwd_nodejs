@@ -2,27 +2,34 @@ import React, { Component } from 'react';
 import Masonry from 'react-masonry-component';
 import { Link } from 'react-router-dom';
 
-const masonryOptions = {
-    transitionDuration: 0,
-    isFitWidth: true
-};
-
 class Posts extends Component {
-    state = {post: [], count: 6, currentType: '*',services:[]};
-
-    componentDidMount() {
-        fetch('/posts')
-            .then(res => res.json())
-            .then(post => this.setState({post}));
-        fetch('/services')
-            .then(res => res.json())
-            .then(services => this.setState({services}));
-    }
 
     constructor(props) {
         super(props);
         this.loadMore = this.loadMore.bind(this);
         this.ChangeType = this.ChangeType.bind(this);
+        this.state = {
+            post: [],
+            count: 6,
+            currentType: '*',
+            services:[],
+            search: []
+        };
+        this.masonryOptions = {
+            transitionDuration: 0,
+            isFitWidth: true
+        };
+    }
+
+    componentDidMount() {
+        fetch('/posts')
+            .then(res => res.json())
+            .then(post => this.setState({post})).catch(err => {
+            console.log('caught it!', err);
+        });
+        fetch('/services')
+            .then(res => res.json())
+            .then(services => this.setState({services}));
     }
 
     loadMore() {
@@ -45,7 +52,7 @@ class Posts extends Component {
         document.title = "Posts";
         const posts =
             this.state.post
-                .filter(posts=>this.CurrentType(posts))
+                .filter(posts=> this.CurrentType(posts))
                 .reverse()
                 .slice( 0, this.state.count)
                 .map(post =>
@@ -89,7 +96,7 @@ class Posts extends Component {
                 <Masonry
                     className={'post-wrapper'}
                     elementType={'div'}
-                    options={masonryOptions}
+                    options={this.masonryOptions}
                     disableImagesLoaded={false}
                     updateOnEachImageLoad={true}
                 >

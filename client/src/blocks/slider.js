@@ -8,7 +8,15 @@ const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    responsive:[
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false
+            }
+        }
+    ]
 };
 
 class MainSlider extends Component {
