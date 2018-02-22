@@ -33,11 +33,11 @@ class Posts extends Component {
     }
 
     loadMore() {
-        this.setState({count:this.state.count+6})
+        this.setState({count: this.state.count+6 })
     }
 
     ChangeType(event){
-        this.setState({currentType:event.target.value});
+        this.setState({currentType: event.target.value });
     }
 
     CurrentType(posts) {
@@ -52,9 +52,9 @@ class Posts extends Component {
         document.title = "Posts";
         const posts =
             this.state.post
+                .slice( 0, this.state.count)
                 .filter(posts=> this.CurrentType(posts))
                 .reverse()
-                .slice( 0, this.state.count)
                 .map(post =>
                     <div key={post.id}  className="post-single__matrix">
                         <div className="post-single">
@@ -62,9 +62,11 @@ class Posts extends Component {
                             <div className="post-single__image">
                                 <img src={'/public/content/projects/' + post.images} alt={post.title}/>
                             </div>
-                            <div className="post-single__description">
-                                <span>{post.description}</span>
-                            </div>
+                            {post.description ?
+                                <div className="post-single__description">
+                                    <span>{post.description}</span>
+                                </div>
+                                : null}
                             <div className="post-single__type">
                                 <span>{post.type}</span>
                             </div>
@@ -87,7 +89,12 @@ class Posts extends Component {
                                 .filter(services=>{
                                     return services.title === this.state.currentType
                                 })
-                                .map(services => services.description)}
+                                .map(services =>
+                                    <div className="services_content">
+                                        <i className={services.usl_ico}/>
+                                        {services.description}
+                                    </div>
+                                )}
                             </span>;
         return (
             <div className="post container">

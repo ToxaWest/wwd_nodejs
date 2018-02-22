@@ -1,77 +1,18 @@
-@import "../../node_modules/normalize.css/normalize.css";
-@font-face {
-  font-family: 'capture';
-  src: url("../fonts/capture-it.ttf");
-}
-@font-face {
-  font-family: 'ubuntu';
-  src: url("../fonts/ubuntu-condensed.ttf");
-}
-@font-face {
-  font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?o21fqb');
-  src:  url('../fonts/icomoon.eot?o21fqb#iefix') format('embedded-opentype'),
-  url('../fonts/icomoon.ttf?o21fqb') format('truetype'),
-  url('../fonts/icomoon.woff?o21fqb') format('woff'),
-  url('../fonts/icomoon.svg?o21fqb#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+//@import "../../node_modules/normalize.css/normalize.css";
+@import "src/_fonts";
 
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+//colors
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-game-controller:before {
-  content: "\e900";
-}
-.icon-mobile:before {
-  content: "\e903";
-}
-.icon-desktop:before {
-  content: "\e904";
-}
-.icon-google-wallet:before {
-  content: "\e905";
-}
-.icon-drivers-license-o:before {
-  content: "\e902";
-}
-.icon-shopping-bag:before {
-  content: "\e901";
-}
-.icon-pencil2:before {
-  content: "\e906";
-}
-.icon-briefcase:before {
-  content: "\e9ae";
-}
-.icon-menu:before {
-  content: "\e9bd";
-}
-.icon-cross:before {
-  content: "\ea0f";
-}
-.icon-pagebreak:before {
-  content: "\ea6e";
-}
+@color1: #009c00;
+@color2: #007038;
+@color3: #ff0043;
+@color4: #c7eed9;
+@color5: #ff761a;
 
 *{
   box-sizing: border-box;
 }
 body, html{
-  background: #ccc;
   margin: 0;
   padding: 0;
   font-family: 'ubuntu', sans-serif;
@@ -87,68 +28,18 @@ a{
   text-decoration: none;
   transition: 0.2s;
   letter-spacing: 0.1em;
-  color: #000;
+  color: @color5;
   &:hover{
-      text-shadow: black;
+    color: @color3;
   }
 }
 button{
   margin: 25px auto;
   display: block;
 }
-.header{
-    &-main{
-        position: fixed;
-        width: 100%;
-        top:0;
-        left: 0;
-        z-index: 20;
-        height: 50px;
-        background-color: #eaeaea;
-    }
-    &-wrapper{
-        display: flex;
-        max-width: 1024px;
-        width: 100%;
-        margin: auto;
-    }
-    &-menu{
-        list-style: none;
-        padding: 0;
-        margin: 0 0 0 auto;
-        display: flex;
-        li{
-            line-height: 50px;
-            transition: 0.2s;
-            position: relative;
-            a{
-                display: block;
-                padding: 0 15px;
-            }
-            .sublink{
-                display: none;
-                position: absolute;
-                width: 200%;
-                background-color: #ccc;
-                a{
-                    transition: 0.2s 0s;
-                }
-            }
-            &:hover, &.active{
-                background-color: #fff;
-            }
-            &:hover{
-                .sublink{
-                    display: block;
-                    a:hover{
-                        background-color: #000;
-                        color: #fff;
-                    }
-                }
-            }
-        }
-    }
-}
+
+@import "src/_services";
+@import "src/_header";
 .container{
   max-width: 1024px;
   padding: 15px;
@@ -168,10 +59,6 @@ button{
     display: block;
     border: none;
     border-bottom: 3px solid #fff;
-  }
-  .description{
-    padding: 10px;
-    display: block;
   }
   &-wrapper{
     margin: 0 auto;

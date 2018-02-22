@@ -11,11 +11,11 @@ class Services extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container services">
                 {this.state.services.map(services =>
                     <div key={services.id} className="services_content">
-                        <h3>{services.title}</h3>
                         <i className={services.usl_ico}/>
+                        <h3>{services.title}</h3>
                     </div>
                 )}
             </div>

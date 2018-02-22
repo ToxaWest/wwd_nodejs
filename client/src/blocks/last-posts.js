@@ -44,7 +44,7 @@ class LastPosts extends Component {
             <div className="container">
                 <Slick {...settings} className="post-slider">
                     {this.state.post.map(post =>
-                        <div key={post.id} className="post-single__wrapper">
+                        <div key={post.title} className="post-single__wrapper">
                             <div className="post-single">
                                 <h2><a href={'/portfolio/' + post.id} title={post.title}>{post.title}</a></h2>
                                 <div className="post-single__image">

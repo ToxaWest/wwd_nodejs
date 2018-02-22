@@ -9,7 +9,8 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-slick": "^0.18.1",
-    "react-slick-carousel": "^0.14.9"
+    "react-slick-carousel": "^0.14.9",
+    "react-touch-events": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
