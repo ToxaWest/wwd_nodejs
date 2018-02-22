@@ -7,15 +7,21 @@
     z-index: 20;
     height: 50px;
     background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   &-wrapper{
     display: flex;
     width: 100%;
-    position: relative;
+    position: absolute;
+    top:50px;
+    background-color: @color4;
   }
   &-menu{
     list-style: none;
     padding: 0;
+    width: 100%;
     margin: 0 0 0 auto;
     li{
       line-height: 50px;
@@ -35,7 +41,7 @@
         }
       }
       &:hover, &.active{
-        background-color: #fff;
+        background-color: @color2;
       }
       &:hover{
         .sublink{
@@ -46,6 +52,14 @@
           }
         }
       }
+    }
+  }
+}
+header{
+  .icon-menu{
+    display: inline-block;
+    &:before{
+      font-size: 50px;
     }
   }
 }

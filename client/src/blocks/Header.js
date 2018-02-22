@@ -1,52 +1,37 @@
 import React, { Component } from 'react';
 import Menu from './Menu';
 import { Link } from 'react-router-dom';
-import ReactTouchEvents from "react-touch-events";
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {mobile_menu: false};
+        this.state = {mobileMenu: false};
+        this.MobileMenu = this.MobileMenu.bind(this);
     }
 
-    handleTap () {
-
-        console.log("you have taped me");
+    MobileMenu(){
+        this.state.mobileMenu ?
+        this.setState({mobileMenu:false }):
+            this.setState({mobileMenu:true })
 
     }
 
-    handleSwipe (direction) {
-
-        switch (direction) {
-            case "top":
-            case "bottom":
-            case "left":
-            case "right":
-            default:
-        }
-    }
     render() {
         const Logo = <Link to={"/"} ><i className="icon-google-wallet"/><span>WestWD</span></Link>;
 
         return (
-            <ReactTouchEvents
-                onTap={ this.handleTap }
-                onSwipe={ this.handleSwipe }
-            >
             <header className="header-main">
                 <div className="logo">
                     {Logo}
                 </div>
-
-                    {this.state.mobile_menu ?
-                        <nav className="header-wrapper">
-                            <Menu/>
-                        </nav>
-                        : null}
-
+                <i className={this.state.mobileMenu ? "icon-menu active " : "icon-menu"} onClick={this.MobileMenu}/>
+                {this.state.mobileMenu ?
+                    <nav className="header-wrapper">
+                        <Menu/>
+                    </nav>
+                    : null}
             </header>
-            </ReactTouchEvents>
         );
     }
 }
