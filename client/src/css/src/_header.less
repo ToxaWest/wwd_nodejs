@@ -16,6 +16,8 @@
     width: 100%;
     position: absolute;
     top:50px;
+    right: 0;
+    max-width: 768px;
     background-color: @color4;
   }
   &-menu{
@@ -57,9 +59,25 @@
 }
 header{
   .icon-menu{
-    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+    text-align: center;
+    margin: auto 5px;
     &:before{
-      font-size: 50px;
+      transition: 0.3s;
+      display: inline-block;
+      line-height: 45px;
+      font-size: 45px;
+      width: 45px;
+      height: 45px;
+    }
+    &.active{
+      background-color: #009c00;
+      &:before{
+        font-size: 30px;
+        color: #fff;
+      }
     }
   }
 }
