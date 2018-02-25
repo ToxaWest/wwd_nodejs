@@ -30,15 +30,17 @@ class MainSlider extends Component {
 
     render() {
         return (
-            <Slick {...settings}>
-                {this.state.slider.map(slider =>
-                    <div key={slider.id} className="main-slider" style={{backgroundImage: "url(/public/content/slider/" + slider.img + ")"}}>
-                        <div className="main-slider_content">
-                            <h3>{slider.caption}</h3>
+            <div className={"home-slider"}>
+                <Slick {...settings}>
+                    {this.state.slider.map(slider =>
+                        <div key={slider.id} className="main-slider" style={{backgroundImage: "url(/public/content/slider/" + slider.img + ")"}}>
+                            <div className="main-slider_content">
+                                <h3>{slider.caption}</h3>
+                            </div>
                         </div>
-                    </div>
-                )}
-            </Slick>
+                    )}
+                </Slick>
+            </div>
         );
     }
 }

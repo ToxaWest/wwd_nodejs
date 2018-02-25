@@ -11,6 +11,9 @@
 
 *{
   box-sizing: border-box;
+  &:focus{
+    outline: none;
+  }
 }
 body, html{
   margin: 0;
@@ -130,31 +133,6 @@ button{
             padding: 0 15px;
         }
     }
-  }
-  &-slider{
-    display: flex;
-    overflow: hidden;
-    .post-single{
-      margin: 0;
-      width: auto;
-      &__wrapper{
-        padding: 0 15px;
-      }
-    }
-  }
-  &-page{
-      width: 100%;
-      background-size: cover;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      .post-single{
-          width: 100%;
-          max-width: 1024px;
-          padding: 35px;
-          margin: 30vh auto 0;
-          background-color: #eaeaea;
-      }
   }
 }
 .home-slider{

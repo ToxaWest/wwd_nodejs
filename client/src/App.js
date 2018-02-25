@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Header from './blocks/Header';
-import Posts from './blocks/posts';
+import Header from './blocks/header';
+import Posts from './components/posts';
 import Footer from "./blocks/footer";
-import Home from "./blocks/home";
-import SinglePosts from "./blocks/single-post";
+import MainSlider from "./components/slider";
+import Services from "./components/services";
 
 class App extends Component {
 
@@ -12,11 +11,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <Switch>
-                    <Route exact path={'/'} component={Home}/>
-                    <Route exact path='/portfolio' component={Posts}/>
-                    <Route path='/portfolio/:id' component={SinglePosts}/>
-                </Switch>
+                <MainSlider />
+                <Services />
+                <Posts/>
                 <Footer/>
             </div>
         );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Masonry from 'react-masonry-component';
-import { Link } from 'react-router-dom';
 
 class Posts extends Component {
 
@@ -58,7 +57,7 @@ class Posts extends Component {
                 .map(post =>
                     <div key={post.id}  className="post-single__matrix">
                         <div className="post-single">
-                            <h2><Link to={'/portfolio/' + post.id} title={post.title}>{post.title}</Link></h2>
+                            <h2><a href={'/portfolio/' + post.id} title={post.title}>{post.title}</a></h2>
                             <div className="post-single__image">
                                 <img src={'/public/content/projects/' + post.images} alt={post.title}/>
                             </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
-import { Link } from 'react-router-dom';
+import Menu from '../components/menu';
 
 class Header extends Component {
 
@@ -18,7 +17,7 @@ class Header extends Component {
     }
 
     render() {
-        const Logo = <Link to={"/"} ><i className="icon-google-wallet"/><span>WestWD</span></Link>;
+        const Logo = <a href={"/"} ><i className="icon-google-wallet"/><span>WestWD</span></a>;
 
         return (
             <header className="header-main">

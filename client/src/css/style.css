@@ -63,6 +63,9 @@
 * {
   box-sizing: border-box;
 }
+*:focus {
+  outline: none;
+}
 body,
 html {
   margin: 0;
@@ -317,31 +320,6 @@ header .icon-menu.active:before {
   width: auto;
   margin: 0 auto;
   padding: 0 15px;
-}
-.post-slider {
-  display: flex;
-  overflow: hidden;
-}
-.post-slider .post-single {
-  margin: 0;
-  width: auto;
-}
-.post-slider .post-single__wrapper {
-  padding: 0 15px;
-}
-.post-page {
-  width: 100%;
-  background-size: cover;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-.post-page .post-single {
-  width: 100%;
-  max-width: 1024px;
-  padding: 35px;
-  margin: 30vh auto 0;
-  background-color: #eaeaea;
 }
 .home-slider .slick-dots {
   bottom: 0;
