@@ -1,35 +1,27 @@
 import React, { Component } from 'react';
-import Menu from '../components/menu';
+import NavBar from '../swg/navbar_mobile.svg';
+
+
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {mobileMenu: false};
         this.MobileMenu = this.MobileMenu.bind(this);
     }
 
     MobileMenu(){
-        this.state.mobileMenu ?
-        this.setState({mobileMenu:false }):
-            this.setState({mobileMenu:true })
-
+        console.log('hi');
     }
 
     render() {
-        const Logo = <a href={"/"} ><i className="icon-google-wallet"/><span>WestWD</span></a>;
 
         return (
-            <header className="header-main">
-                <div className="logo">
-                    {Logo}
+            <header id={'header'} className="header-main">
+                <div className={'nav-bar'} onClick={this.MobileMenu}>
+                    <img src={NavBar}  alt={'menu'}/>
                 </div>
-                <i className={this.state.mobileMenu ? "icon-menu active " : "icon-menu"} onClick={this.MobileMenu}/>
-                {this.state.mobileMenu ?
-                    <nav className="header-wrapper">
-                        <Menu/>
-                    </nav>
-                    : null}
+                <span className="title logo">WestWD</span>
             </header>
         );
     }
