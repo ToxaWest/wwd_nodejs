@@ -317,7 +317,6 @@ template {
 }
 [class^="icon-"],
 [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -325,7 +324,6 @@ template {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -483,7 +481,7 @@ img {
 }
 .logo {
   color: #ffffff;
-  padding-left: calc(32px);
+  padding-left: calc(72px - 16px - 24px);
   line-height: 1.2;
 }
 .nav-bar {
@@ -582,7 +580,7 @@ img {
   text-align: center;
 }
 #aside .content .services-item .menu {
-  padding-left: calc(32px);
+  padding-left: calc(72px - 16px - 24px);
   letter-spacing: 0;
 }
 #aside .content .services-item label {
