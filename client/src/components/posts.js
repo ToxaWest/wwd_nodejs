@@ -18,7 +18,7 @@ class Posts extends Component {
 
         const posts = this.state.post.map(post =>
                     <div key={post.id} className="post-single">
-                        <img src={'/public/content/projects/' + post.images} alt={post.title}/>
+                        <img src={'/content/projects/' + post.images} alt={post.title}/>
                         <div className={'post-single_content'}>
                             <div className={'text'}>
                                 <h2 className={'headline'}>{post.title}</h2>
