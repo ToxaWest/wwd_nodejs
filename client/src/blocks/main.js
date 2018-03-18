@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Posts from "../components/posts";
+import PostsDetails from "../components/posts-details";
 
 class Main extends Component {
 
@@ -7,6 +8,7 @@ class Main extends Component {
         return (
             <main id={'main'}>
                 <Posts/>
+                <PostsDetails/>
             </main>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {SinglePosts} from '../actions/index';
 
 class Posts extends Component {
 
@@ -26,14 +27,14 @@ class Posts extends Component {
                             </div>
                             <div className={'actions'}>
                                 <a href={post.link} className={'btn2'}>Live</a>
-                                <button className={'btn2'} disabled={true}>Read more</button>
+                                <a className={'btn2'} onClick={()=> this.props.SinglePosts (post)}>Read more</a>
                             </div>
                         </div>
                     </div>
                 );
 
         return (
-            <div className="post">
+            <div className={this.props.singlePost ? 'post active' : 'post'}>
                 {posts}
             </div>
         );
@@ -42,8 +43,14 @@ class Posts extends Component {
 
 function mapStateToProps (state) {
     return {
-        post: state.post
+        post: state.post,
+        singlePost:state.singlePost
     }
 }
 
-export default connect(mapStateToProps)(Posts);
+function matchDispatchToProps (dispatch) {
+    return bindActionCreators({SinglePosts: SinglePosts}, dispatch)
+
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Posts);

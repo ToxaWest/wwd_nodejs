@@ -624,6 +624,14 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+.post.active {
+  left: calc(-100% - 16px);
+  height: 0;
 }
 .post-single {
   width: 344px;

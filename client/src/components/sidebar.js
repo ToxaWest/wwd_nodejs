@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import west from '../img/dO2PZb7lWZE.jpg'
 import {connect} from "react-redux";
+import {FilterPosts} from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 class Sidebar extends Component {
 
@@ -38,8 +40,8 @@ class Sidebar extends Component {
                         <div key={services.id} className={'services-item'}>
                             <i className={services.usl_ico}/>
                             <div className={'menu'}>{services.title}</div>
-                            <input type={'checkbox'} id={'serv' + services.id} name={'serv' + services.id}/>
-                            <label htmlFor={'serv' + services.id}/>
+                            <input type={'checkbox'} id={'serv' + services.id} name={'serv' + services.id} />
+                            <label htmlFor={'serv' + services.id} onClick={()=> this.props.FilterPosts (services)}/>
                         </div >
                     )}
                 </div>
@@ -47,10 +49,16 @@ class Sidebar extends Component {
         );
     }
 }
+
 function mapStateToProps (state) {
     return {
         services: state.services
     }
 }
 
-export default connect(mapStateToProps)(Sidebar);
+function matchDispatchToProps (dispatch) {
+    return bindActionCreators({FilterPosts: FilterPosts}, dispatch)
+
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Sidebar);
