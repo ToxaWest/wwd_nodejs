@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import NavBar from '../swg/navbar_mobile.svg';
+import {SwipeAside} from "../actions/index";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
 
 
 class Header extends Component {
 
-    constructor(props) {
-        super(props);
-        this.MobileMenu = this.MobileMenu.bind(this);
-    }
-
-    MobileMenu(){
-        console.log('hi');
-    }
-
     render() {
 
         return (
             <header id={'header'} className="header-main">
-                <div className={'nav-bar'} onClick={this.MobileMenu}>
+                <div className={'nav-bar'} onClick={()=> this.props.SwipeAside (0)}>
                     <img src={NavBar}  alt={'menu'}/>
                 </div>
                 <span className="title logo">WestWD</span>
@@ -27,4 +21,15 @@ class Header extends Component {
     }
 }
 
-export default Header;
+function mapStateToProps (state) {
+    return {
+        swipeAside: state.swipeAside
+    }
+}
+
+function matchDispatchToProps (dispatch) {
+    return bindActionCreators({SwipeAside: SwipeAside}, dispatch)
+
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Header);

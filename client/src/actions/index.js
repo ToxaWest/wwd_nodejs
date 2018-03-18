@@ -1,7 +1,6 @@
 //filter posts
 
 export const FilterPosts = (services) => {
-    alert ("checked: " + services.title);
     return{
         type: "SERVICES_SELECTED",
         payload: services
@@ -14,5 +13,13 @@ export const SinglePosts = (posts) => {
     return{
         type: "POST_SELECTED",
         payload: posts
+    }
+};
+
+//sidebar
+export const SwipeAside = (swipeAside) => {
+    return{
+        type: "ActiveSwipe",
+        payload: swipeAside
     }
 };

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Swipe from 'react-easy-swipe';
 import Sidebar from "../components/sidebar";
 import {connect} from "react-redux";
+import {SwipeAside} from "../actions";
+import {bindActionCreators} from "redux";
 
 
 class Aside extends Component {
@@ -12,7 +14,6 @@ class Aside extends Component {
             swipe: -300
         };
         this.onSwipeMove = this.onSwipeMove.bind(this);
-        this.onSwipeRight = this.onSwipeRight.bind(this);
         this.onSwipeLeft = this.onSwipeLeft.bind(this);
         this.onSwipeEnd = this.onSwipeEnd.bind(this);
     }
@@ -20,25 +21,21 @@ class Aside extends Component {
     onSwipeMove(position) {
         const swipePosition = position.x -300;
         // eslint-disable-next-line
-        this.state.swipe !== 0 ?
+        this.props.swipe !== 0 ?
             position.x < 300 ?
-                this.setState({swipe: swipePosition})
+                this.props.SwipeAside(swipePosition)
                 : null
             : null
     }
 
-    onSwipeRight() {
-        this.setState({swipe: 0})
-    }
-
     onSwipeLeft() {
-        this.setState({swipe: -300})
+        this.props.SwipeAside(-300)
     }
 
     onSwipeEnd() {
-        this.state.swipe > -200 ?
-            this.setState({swipe: 0})
-            : this.setState({swipe: -300})
+        this.props.swipe > -200 ?
+            this.props.SwipeAside(0)
+            : this.props.SwipeAside(-300)
     }
 
     render() {
@@ -47,7 +44,7 @@ class Aside extends Component {
                 onSwipeMove={this.onSwipeMove}
                 onSwipeLeft={this.onSwipeLeft}
                 onSwipeEnd={this.onSwipeEnd}>
-                <aside id={'aside'} style={{left : this.state.swipe+'px'}}>
+                <aside id={'aside'} style={{left : this.props.swipe+'px'}}>
                     <Sidebar/>
                 </aside>
             </Swipe>
@@ -59,5 +56,9 @@ function mapStateToProps (state) {
         swipe: state.aside
     }
 }
+function matchDispatchToProps (dispatch) {
+    return bindActionCreators({SwipeAside: SwipeAside}, dispatch)
 
-export default connect(mapStateToProps)(Aside);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Aside);
