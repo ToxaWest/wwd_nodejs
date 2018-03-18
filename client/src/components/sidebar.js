@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import west from '../img/dO2PZb7lWZE.jpg'
+import {connect} from "react-redux";
 
 class Sidebar extends Component {
-    state = {services: []};
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            services: []
+        };
+    }
     componentDidMount() {
-        fetch('/services')
-            .then(res => res.json())
-            .then(services => this.setState({ services }));
+        this.props.services.then(services => this.setState({services}));
     }
 
     render() {
@@ -43,5 +47,10 @@ class Sidebar extends Component {
         );
     }
 }
+function mapStateToProps (state) {
+    return {
+        services: state.services
+    }
+}
 
-export default Sidebar;
+export default connect(mapStateToProps)(Sidebar);

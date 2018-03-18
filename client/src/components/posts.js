@@ -31,6 +31,7 @@ class Posts extends Component {
                         </div>
                     </div>
                 );
+
         return (
             <div className="post">
                 {posts}
