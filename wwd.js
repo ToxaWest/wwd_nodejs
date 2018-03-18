@@ -2,7 +2,7 @@ const   express = require('express'),
         bodyParser = require('body-parser'),
         path = require('path'),
         app = express(),
-        port = 3000;
+        port = 8080;
 
 const posts  = require('./routes/posts');
 const main_menu  = require('./routes/main_menu');
