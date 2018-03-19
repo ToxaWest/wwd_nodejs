@@ -58,7 +58,6 @@ function mapStateToProps (state) {
 
 function matchDispatchToProps (dispatch) {
     return bindActionCreators({FilterPosts: FilterPosts}, dispatch)
-
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Sidebar);
