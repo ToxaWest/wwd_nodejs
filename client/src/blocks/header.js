@@ -12,7 +12,7 @@ class Header extends Component {
 
         return (
             <header id={'header'} className="header-main">
-                <div className={'nav-bar'} onClick={()=> this.props.SwipeAside (0)}>
+                <div className={'nav-bar'} onClick={()=> this.props.swipeAside ? this.props.SwipeAside(0) : this.props.SwipeAside(-300) }>
                     <img src={NavBar}  alt={'menu'}/>
                 </div>
                 <span className="title logo">WestWD</span>
@@ -23,7 +23,7 @@ class Header extends Component {
 
 function mapStateToProps (state) {
     return {
-        swipeAside: state.swipeAside
+        swipeAside: state.aside
     }
 }
 
