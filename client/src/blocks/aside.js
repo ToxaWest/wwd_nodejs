@@ -19,7 +19,6 @@ class Aside extends Component {
     }
 
     onSwipeMove(position) {
-        const isTouch = true;
         const swipePosition = position.x -300;
         // eslint-disable-next-line
         this.props.swipe !== 0 ?
@@ -45,7 +44,7 @@ class Aside extends Component {
                 onSwipeMove={this.onSwipeMove}
                 onSwipeLeft={this.onSwipeLeft}
                 onSwipeEnd={this.onSwipeEnd}>
-                <aside id={'aside'} style={{left : this.props.swipe+'px', }} className={!this.onSwipeMove ? 'touch' : null}>
+                <aside id={'aside'} style={{left : this.props.swipe+'px', }} className={this.props.TouchDevice ? 'touch' : null}>
                     <Sidebar/>
                 </aside>
             </Swipe>
@@ -54,12 +53,12 @@ class Aside extends Component {
 }
 function mapStateToProps (state) {
     return {
-        swipe: state.aside
+        swipe: state.aside,
+        TouchDevice : state.TouchDevice
     }
 }
 function matchDispatchToProps (dispatch) {
     return bindActionCreators({SwipeAside: SwipeAside}, dispatch)
-
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Aside);
