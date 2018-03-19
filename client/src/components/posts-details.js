@@ -3,12 +3,11 @@ import {connect} from "react-redux";
 
 class PostsDetails extends Component{
     render (){
-        if(!this.props.singlePost){
-            return false
-        }
         return (
-            <div >
-                <img src={'content/projects/' + this.props.singlePost.images} />
+            <div className={!this.props.singlePost ? 'post-details' : 'post-details active'}>
+                {this.props.singlePost ?
+                    <img src={'content/projects/' + this.props.singlePost.images}/>
+                : false}
             </div>
         )
     }

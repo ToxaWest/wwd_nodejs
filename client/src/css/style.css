@@ -488,6 +488,7 @@ img {
   width: 24px;
   height: 24px;
   display: inline-flex;
+  cursor: pointer;
 }
 .nav-bar img {
   width: 18px;
@@ -627,7 +628,15 @@ img {
   left: 0;
 }
 .back {
-  padding: 20px;
+  padding: 0 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 56px;
+}
+.back:before {
+  content: '<';
 }
 .post {
   display: flex;
@@ -670,7 +679,12 @@ img {
 .post-single_content .actions {
   padding-top: 8px;
 }
-html.no-touch #aside {
-  height: calc(100vh - 116px);
-  top: 58px;
+.post-details {
+  left: calc(100% + 16px);
+  position: relative;
+  top: 0;
+  transition: 0.3s;
+}
+.post-details.active {
+  left: 0;
 }

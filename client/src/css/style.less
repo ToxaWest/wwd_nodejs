@@ -195,6 +195,7 @@ img{
   width: 24px;
   height: 24px;
   display: inline-flex;
+  cursor: pointer;
   img{
     width: 18px;
     height: 12px;
@@ -336,7 +337,15 @@ img{
 }
 
 .back{
-  padding: 20px;
+  padding: 0 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 56px;
+  &:before{
+    content: '<';
+  }
 }
 
 .post{
@@ -380,10 +389,12 @@ img{
     }
   }
 }
-
-html.no-touch{
-  #aside{
-    height: calc(~"100vh - 116px");
-    top:58px;
+.post-details{
+  left: calc(~"100% + 16px");
+  position: relative;
+  top:0;
+  transition: 0.3s;
+  &.active{
+    left: 0;
   }
 }

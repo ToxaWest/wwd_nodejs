@@ -10,7 +10,7 @@ class FooterMenu extends Component {
         return (
             <div>
                 {this.props.singlePost ?
-                    <div className={'back'} onClick={() => this.props.SinglePosts(null)}>{'<-'}</div>
+                    <div className={'back'} onClick={() => this.props.SinglePosts(null)}></div>
                     : null
                     }
             </div>
