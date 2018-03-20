@@ -4,12 +4,12 @@ const   express = require('express'),
         fs = require('fs'),
         http = require('http'),
         https = require('https'),
-        privateKey  = fs.readFileSync('./sslcert/wwd.com.test.key', 'utf8'),
-        certificate = fs.readFileSync('./sslcert/wwd.com.test.cert', 'utf8'),
+        privateKey  = fs.readFileSync('./sslcert/localhost.key', 'utf8'),
+        certificate = fs.readFileSync('./sslcert/localhost.cert', 'utf8'),
         credentials = {key: privateKey, cert: certificate},
         app = express(),
-        port = 3007,
-        SSLport = 3000;
+        port = 3000,
+        SSLport = 3007;
 
 
 const posts  = require('./routes/posts');
