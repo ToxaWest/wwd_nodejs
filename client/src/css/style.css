@@ -513,7 +513,7 @@ img {
 }
 #aside.touch {
   top: 0;
-  transition: 0;
+  transition: unset;
   height: 100vh;
 }
 #aside .content {
